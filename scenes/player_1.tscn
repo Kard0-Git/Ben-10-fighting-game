@@ -1,6 +1,11 @@
 [gd_scene format=3 uid="uid://o423dx0r5yyi"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_svowc"]
+[ext_resource type="Script" uid="uid://djk66ig7fknlk" path="res://player_1.gd" id="1_rfmnd"]
+[ext_resource type="Texture2D" uid="uid://4a3urlrflyog" path="res://assets/placeholder_ben.png" id="2_gneq0"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f7tsm"]
+atlas = ExtResource("2_gneq0")
+region = Rect2(0, 0, 158, 341)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_rfmnd"]
 animations = [{
@@ -19,7 +24,10 @@ animations = [{
 "name": &"Walk",
 "speed": 5.0
 }, {
-"frames": [],
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f7tsm")
+}],
 "loop": true,
 "name": &"idle",
 "speed": 5.0
@@ -30,11 +38,16 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="Player1" type="CharacterBody2D" unique_id=415800154]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_svowc"]
+size = Vector2(158, 342)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1561444342]
-shape = SubResource("RectangleShape2D_svowc")
+[node name="Player1" type="CharacterBody2D" unique_id=415800154]
+script = ExtResource("1_rfmnd")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1261426831]
 sprite_frames = SubResource("SpriteFrames_rfmnd")
-animation = &"Kick"
+animation = &"idle"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1561444342]
+position = Vector2(2, 0)
+shape = SubResource("RectangleShape2D_svowc")
