@@ -1,0 +1,40 @@
+[gd_scene format=3 uid="uid://o423dx0r5yyi"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_svowc"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_rfmnd"]
+animations = [{
+"frames": [],
+"loop": true,
+"name": &"Kick",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"Running",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"Walk",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"punch",
+"speed": 5.0
+}]
+
+[node name="Player1" type="CharacterBody2D" unique_id=415800154]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1561444342]
+shape = SubResource("RectangleShape2D_svowc")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1261426831]
+sprite_frames = SubResource("SpriteFrames_rfmnd")
+animation = &"Kick"
